@@ -1,16 +1,12 @@
 # quizapp
 
-A quiz app.
+A quiz application, that as the name suggests asks questions of which you have to reply either "TRUE" or "FALSE".
 
-## Getting Started
+If you want to test the app on your android device , you need to clone this repo in your system
+and you should have flutter environment installed , then run the command ```flutter build apk --split-per-abi```
+then you have to install 'app.apk' file located in
+```build\app\outputs\flutter-apk\app.apk```
 
-This project is a starting point for a Flutter application.
+### Installing Flutter:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##### `sudo snap install flutter --classic`
