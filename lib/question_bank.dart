@@ -1,5 +1,13 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:quizapp/Questions.dart';
 import 'Questions.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:quizapp/main.dart';
+
+int _qno = 0;
+quizscreen  quizcreenobj= quizscreen();
 
 class QuestionBank {
   List<Questions> _questions = [
@@ -14,6 +22,35 @@ class QuestionBank {
     Questions(q: 'Git and Github are used for Version  Control', a: true ),
     Questions(q: ' \'break;\' statement in C++ terminate the loop.',a: true)
   ];
+
+  void incrementqno(BuildContext context){
+    if((_qno+1)< _questions.length)
+    _qno++;
+    else
+      Alert(
+        context: context,
+        type: AlertType.success,
+        title: "GOOD JOB!!",
+        desc: "You have completed the quiz.",
+        buttons: [
+          DialogButton(
+            child: Text(
+              "RETAKE QUIZ",
+              style: TextStyle(color: Colors.white, fontSize: 13),
+            ),
+            onPressed: () => Navigator.pop(context),
+            width: 120,
+          )
+        ],
+      ).show();
+
+
+  }
+
+  int giveqno()
+  {
+    return _qno;
+  }
 
   String giveQuestion(int quesno) {
     return _questions[quesno].question;

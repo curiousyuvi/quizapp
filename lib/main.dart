@@ -25,8 +25,6 @@ class quizscreen extends StatefulWidget {
 class _quizscreenState extends State<quizscreen> {
   List<Icon> scorekeeper = [];
 
-  int qno = 0;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -41,7 +39,7 @@ class _quizscreenState extends State<quizscreen> {
               Expanded(
                 child: Center(
                   child: Text(
-                    questionBankobj.giveQuestion(qno),
+                    questionBankobj.giveQuestion(questionBankobj.giveqno()),
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                 ),
@@ -50,20 +48,19 @@ class _quizscreenState extends State<quizscreen> {
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: FlatButton(
                   onPressed: () {
-                    if (qno < 7) {
-                      setState(() {
-                        if (questionBankobj.giveAnswer(qno)) {
-                          scorekeeper.add(
-                            Icon(Icons.check, color: Colors.green),
-                          );
-                        } else {
-                          scorekeeper.add(
-                            Icon(Icons.close, color: Colors.red),
-                          );
-                        }
-                        qno++;
-                      });
-                    }
+                    setState(() {
+                      if (questionBankobj
+                          .giveAnswer(questionBankobj.giveqno())) {
+                        scorekeeper.add(
+                          Icon(Icons.check, color: Colors.green),
+                        );
+                      } else {
+                        scorekeeper.add(
+                          Icon(Icons.close, color: Colors.red),
+                        );
+                      }
+                      questionBankobj.incrementqno(context);
+                    });
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -79,20 +76,19 @@ class _quizscreenState extends State<quizscreen> {
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: FlatButton(
                   onPressed: () {
-                    if (qno < 7) {
-                      setState(() {
-                        if (!(questionBankobj.giveAnswer(qno))) {
-                          scorekeeper.add(
-                            Icon(Icons.check, color: Colors.green),
-                          );
-                        } else {
-                          scorekeeper.add(
-                            Icon(Icons.close, color: Colors.red),
-                          );
-                        }
-                        qno++;
-                      });
-                    }
+                    setState(() {
+                      if (!(questionBankobj
+                          .giveAnswer(questionBankobj.giveqno()))) {
+                        scorekeeper.add(
+                          Icon(Icons.check, color: Colors.green),
+                        );
+                      } else {
+                        scorekeeper.add(
+                          Icon(Icons.close, color: Colors.red),
+                        );
+                      }
+                      questionBankobj.incrementqno(context);
+                    });
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
