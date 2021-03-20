@@ -7,25 +7,30 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:quizapp/main.dart';
 
 int _qno = 0;
-quizscreen  quizcreenobj= quizscreen();
+quizscreen quizcreenobj = quizscreen();
 
 class QuestionBank {
   List<Questions> _questions = [
-    Questions(q: 'A human has two dicks.', a: false),
-    Questions(q: 'Java and Java Script are exactly the same thing.', a: false),
-    Questions(
-        q: 'C++ is the best language for Competitive Programming.', a: true),
-    Questions(q: 'Linux is an Operating System.', a: false),
-    Questions(
-        q: 'VLC Media Player is not an Open Source Organisation.', a: false),
-    Questions(q: 'Array can have elements of different data types', a: false),
-    Questions(q: 'Git and Github are used for Version  Control', a: true ),
-    Questions(q: ' \'break;\' statement in C++ terminate the loop.',a: true)
+    Questions('Ubuntu is a kernel.', false),
+    Questions('Java and Java Script are exactly the same thing.', false),
+    Questions('C++ is the best language for Competitive Programming.', true),
+    Questions('Linux is an Operating System.', false),
+    Questions('VLC Media Player is not an Open Source Organisation.', false),
+    Questions('Array can have elements of different data types', false),
+    Questions('Git and Github are used for Version  Control', true),
+    Questions(' \'break;\' statement in C++ terminate the loop.', true),
+    Questions('Is C++ a procedural language.', false),
+    Questions('Vim is an IDE.', false),
+    Questions('OOP stands for Object Online Programing.', false),
+    Questions('Uburetntu is based on Arch', false),
+    Questions('Kotlin is supported by Google for App Development.', true),
+    Questions('ReactJS has been created by Facebook.', true),
+    Questions('Flutter is used for native development.', false)
   ];
 
-  void incrementqno(BuildContext context){
-    if((_qno+1)< _questions.length)
-    _qno++;
+  void incrementqno(BuildContext context) {
+    if ((_qno + 1) < _questions.length)
+      _qno++;
     else
       Alert(
         context: context,
@@ -43,12 +48,9 @@ class QuestionBank {
           )
         ],
       ).show();
-
-
   }
 
-  int giveqno()
-  {
+  int giveqno() {
     return _qno;
   }
 
